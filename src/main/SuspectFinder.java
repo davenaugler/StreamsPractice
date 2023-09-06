@@ -23,7 +23,7 @@ public class SuspectFinder {
 		// then filter out all the suspects with glasses
 		// then group by their birth year (Collectors.groupingBy(Suspect::getBirthYear,
 		// Collectors.toList())
-		// -> this will return the birth year and a list of suspect obects (if done
+		// -> this will return the birth year and a list of suspect objects (if done
 		// correctly, there should
 		// only be one suspect object.
 

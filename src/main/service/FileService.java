@@ -19,7 +19,8 @@ public class FileService {
 			String line = null;
 			List<Suspect> suspects = new ArrayList<>();
 			fileReader = new BufferedReader(new FileReader("suspects.txt"));
-			String headerLine = fileReader.readLine();
+			// Skip head line of CSV
+			fileReader.readLine();
 			while ((line = fileReader.readLine()) != null) {
 				String[] lineData = line.split(",");
 				Suspect suspect = new Suspect(lineData[0], lineData[1], Boolean.parseBoolean(lineData[2]), lineData[3],
