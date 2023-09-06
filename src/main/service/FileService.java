@@ -12,16 +12,15 @@ import main.domain.Suspect;
 public class FileService {
 
 	public List<Suspect> getSuspectsFromFile() {
+		List<Suspect> suspects = new ArrayList<>();
 
 		BufferedReader fileReader = null;
 
-		try {
-			String line = null;
-			List<Suspect> suspects = new ArrayList<>();
-			fileReader = new BufferedReader(new FileReader("suspects.txt"));
+		try (BufferedReader br = new BufferedReader(new FileReader("suspects.txt"))){
 			// Skip head line of CSV
-			fileReader.readLine();
-			while ((line = fileReader.readLine()) != null) {
+			br.readLine();
+			String line;
+			while ((line = br.readLine()) != null) {
 				String[] lineData = line.split(",");
 				Suspect suspect = new Suspect(lineData[0], lineData[1], Boolean.parseBoolean(lineData[2]), lineData[3],
 						lineData[4], lineData[5], lineData[6], Integer.parseInt(lineData[7]));
