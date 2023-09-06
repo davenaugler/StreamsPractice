@@ -14,8 +14,6 @@ public class FileService {
 	public List<Suspect> getSuspectsFromFile() {
 		List<Suspect> suspects = new ArrayList<>();
 
-		BufferedReader fileReader = null;
-
 		try (BufferedReader br = new BufferedReader(new FileReader("suspects.txt"))){
 			// Skip head line of CSV
 			br.readLine();
@@ -31,17 +29,8 @@ public class FileService {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				if (fileReader != null) {
-					fileReader.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+		} 
 		return null;
-
 	}
 
 }
